@@ -1,3 +1,3 @@
-# test-rep
+# Project code
 
-안녕하세요 여러분\n 반가워요!
+clone 후 마음껏 사용하세요!
