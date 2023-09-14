@@ -1,0 +1,6 @@
+
+pynecone.db
+*.py[cod]
+__pycache__/
+.web
+appkey.txt
