@@ -21,12 +21,13 @@ class State(pc.State):
     chatList: list[Message] = []
 
     def post_chat(self):
-        # self.chatList.append(self.text)
+        self.chatList.append(
+            Message(role="user", content=self.text)
+        )
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "너는 내 친구니깐 나랑 대화할 때 반말을 해도 돼."},
-                # self.chatList[0:10]
                 {"role": "user", "content": self.text},
             ],
             temperature=0.9,
@@ -43,18 +44,13 @@ class State(pc.State):
 
 
 def message(message):
-    if message.role == "user":
-        return pc.text(message.content, float="left")
-    elif message.role == "assistant":
-        return pc.text(message.content, float="right")
-
-    # return pc.text(message)
+    return pc.box(
+        pc.text(message.role + " : " + message.content, float="left")
+    )
 
 
 def index() -> pc.Component:
     return pc.fragment(
-        pc.color_mode_button(pc.color_mode_icon(), float="right"),
-        pc.vstack(),
         pc.input(
             placeholder="봇이랑 대화해보세요.",
             on_blur=State.set_text,
@@ -63,7 +59,6 @@ def index() -> pc.Component:
         pc.vstack(
             pc.foreach(State.chatList, message),
         ),
-        # pc.text(State.chatList),
     )
 
 
