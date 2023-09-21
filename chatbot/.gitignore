@@ -4,4 +4,6 @@ pynecone.db
 __pycache__/
 .web
 appkey.txt
-chroma
+!chroma/
+chroma/*
+!chroma/ReadME.md

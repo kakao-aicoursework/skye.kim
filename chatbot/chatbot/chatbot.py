@@ -137,11 +137,6 @@ def generate_answer(question) -> dict[str, str]:
     context = dict(user_message=question)
     context["input"] = context["user_message"]
     context["related_documents"] = query_db(context["user_message"])
-    # context["intent_list"] = read_prompt_template(INTENT_LIST_TXT)
-    # context["chat_history"] = get_chat_history(conversation_id)
-
-    # intent = parse_intent_chain(context)["intent"]
-    # intent = parse_intent_chain.run(context)
 
     answer = inform_chain.run(context)
     
