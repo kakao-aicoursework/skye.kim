@@ -1,0 +1,11 @@
+Your job is to read the <message> and respond to the user based on <related_document>.
+
+<message>
+{user_message}
+</message>
+
+<related_documents>
+{related_documents}
+</related_documents>
+
+Answer:

@@ -4,3 +4,4 @@ pynecone.db
 __pycache__/
 .web
 appkey.txt
+chroma
